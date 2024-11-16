@@ -6,11 +6,11 @@ import java.time.Instant;
 
 import org.json.JSONObject;
 
-import static telran.net.TcpConfigurationProperties.*;
-
 import telran.net.exceptions.ServerUnavailableException;
 
-public class TcpClient implements Closeable {
+import static telran.net.TcpConfigurationProperties.*;
+
+public class TcpClient implements Closeable, NetworkClient {
     Socket socket;
     PrintStream writer;
     BufferedReader reader;
@@ -62,6 +62,7 @@ public class TcpClient implements Closeable {
         }
        
     }
+    @Override
     public String sendAndReceive(String requestType, String requestData) {
         Request request = new Request(requestType, requestData);
        
