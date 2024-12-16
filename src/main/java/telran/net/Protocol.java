@@ -2,7 +2,6 @@ package telran.net;
 
 import org.json.JSONObject;
 import static telran.net.TcpConfigurationProperties.*;
-
 public interface Protocol {
 Response getResponse(Request request);
 default String getResponseWithJSON(String requestJSON) {
